@@ -1,35 +1,36 @@
-public class SubTask extends Task {
-    private static int count = 0;
-    public int subTaskId;
+public class SubTask extends Epic {
+    public int taskId;
     public String name;
     public String description;
     public String status;
 
-    SubTask(String name, String description) {
-        super(name, description);
+    SubTask(String name, String description, Epic epic) {
+        Manager manager = new Manager();
+        this.name = name;
+        this.description = description;
+        this.taskId = manager.generateTaskId();
+        this.EpicTaskId = epic.getEpicTaskId();
+        this.status = "NEW";
     }
 
-    private int generateSubTaskId () {
-        count += 1;
-        return subTaskId += count;
-    }
-
-    @Override
-    public String toString() {
-        return "SubTask{" +
-                "subTaskId=" + subTaskId +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
-                '}';
-    }
-
-    public int getSubTaskId() {
-        return subTaskId;
+    public int getTaskId() {
+        return taskId;
     }
 
     @Override
     public String getName() {
         return name;
+    }
+
+
+    @Override
+    public String toString() {
+        return "SubT{" +
+                "taskId=" + taskId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", EpicTaskId=" + EpicTaskId +
+                '}';
     }
 }

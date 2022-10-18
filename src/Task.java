@@ -1,23 +1,24 @@
 public class Task {
-    private static int count = 0;
+
     public int taskId;
     public String name;
     public String description;
     public String status;
 
-    Task (String name, String description) {
-        this.taskId = generateTaskId();
+    public Task (String name, String description) {
+        Manager manager = new Manager();
         this.name = name;
+        this.taskId = manager.generateTaskId();
         this.description = description;
         this.status = "NEW";
     }
 
-    private int generateTaskId () {
-        count += 1;
-        return this.taskId += count;
+    public Task() {
     }
 
-    public int getTaskId() {
+
+
+    public int getEpicTaskId() {
         return taskId;
     }
 
