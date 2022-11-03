@@ -4,12 +4,11 @@ public class SubTask extends Epic {
     public String description;
     public String status;
 
-    SubTask(String name, String description, Epic epic) {
+    SubTask(String name, String description) {
         Manager manager = new Manager();
         this.name = name;
         this.description = description;
         this.taskId = manager.generateTaskId();
-        this.EpicTaskId = epic.getEpicTaskId();
         this.status = "NEW";
     }
 
@@ -23,14 +22,24 @@ public class SubTask extends Epic {
     }
 
 
+
+    @Override
+    public String getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "SubT{" +
+        return "SubTask{" +
                 "taskId=" + taskId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
-                ", EpicTaskId=" + EpicTaskId +
                 '}';
     }
 }

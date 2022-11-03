@@ -16,9 +16,7 @@ public class Task {
     public Task() {
     }
 
-
-
-    public int getEpicTaskId() {
+    public int getTaskId() {
         return taskId;
     }
 
