@@ -1,15 +1,11 @@
-public class SubTask extends Epic {
-    public int taskId;
-    public String name;
-    public String description;
-    public String status;
+package task;
 
-    SubTask(String name, String description) {
-        Manager manager = new Manager();
-        this.name = name;
-        this.description = description;
-        this.taskId = manager.generateTaskId();
-        this.status = "NEW";
+
+public class Subtask extends Task {
+    private int epicTaskId;
+
+    public Subtask(String name, String description) {
+        super(name, description);
     }
 
     public int getTaskId() {
@@ -33,13 +29,22 @@ public class SubTask extends Epic {
         this.status = status;
     }
 
+
     @Override
     public String toString() {
-        return "SubTask{" +
-                "taskId=" + taskId +
-                ", name='" + name + '\'' +
+        return "Subtask{" +
+                "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
+                ", epicTaskId=" + epicTaskId +
                 '}';
+    }
+
+    public int getEpicTaskId() {
+        return epicTaskId;
+    }
+
+    public void setEpicTaskId(int epicTaskId) {
+        this.epicTaskId = epicTaskId;
     }
 }

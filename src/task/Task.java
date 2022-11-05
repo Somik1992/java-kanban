@@ -1,3 +1,6 @@
+package task;
+
+
 public class Task {
 
     public int taskId;
@@ -6,9 +9,7 @@ public class Task {
     public String status;
 
     public Task (String name, String description) {
-        Manager manager = new Manager();
         this.name = name;
-        this.taskId = manager.generateTaskId();
         this.description = description;
         this.status = "NEW";
     }
@@ -18,6 +19,10 @@ public class Task {
 
     public int getTaskId() {
         return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
     public String getName() {
@@ -44,11 +49,11 @@ public class Task {
         this.status = status;
     }
 
+
     @Override
     public String toString() {
         return "Task{" +
-                "taskId=" + taskId +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
                 '}';
