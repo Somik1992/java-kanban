@@ -84,6 +84,7 @@ public class Main {
         System.out.println("4. Управление статусами осуществляется по следующему правилу:");
         sortData.setStatus("DONE");
         taskManager.updateSubtask(sortData);
+        System.out.println(taskManager.getEpics());
         collectData.setStatus("DONE");
         taskManager.updateSubtask(collectData);
         System.out.println(taskManager.getSubtasks());

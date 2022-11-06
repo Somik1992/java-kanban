@@ -20,20 +20,6 @@ public class TaskManager {
         return count;
     }
 
-
-    public Object searchTaskByTaskId (int number) {
-        Object object = null;
-        if (tasks.get(number) != null) {
-            object = tasks.get(number);
-        } else if (epics.get(number) != null) {
-            object = epics.get(number);
-        } else if (subtasks.get(number) != null) {
-            object = subtasks.get(number);
-        }
-        return object;
-    }
-
-
     public void refreshEpicTaskStatus(Collection<Subtask> subTasks, Epic epic) {
         int countNew = 0;
         int countDone = 0;
