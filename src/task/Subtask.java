@@ -2,49 +2,33 @@ package task;
 
 
 public class Subtask extends Task {
-    private int epicTaskId;
+    private int epicId;
 
-    public Subtask(String name, String description) {
+    public Subtask(String name, String description, int epicId) {
         super(name, description);
+        this.epicId = epicId;
     }
 
-    public int getTaskId() {
-        return taskId;
+    public Subtask () {
+        super();
     }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-
-
-    @Override
-    public String getStatus() {
-        return status;
-    }
-
-    @Override
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 
     @Override
     public String toString() {
         return "Subtask{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
-                ", epicTaskId=" + epicTaskId +
+                "id='" + getId() + '\'' +
+                ", name='" + getName() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", status='" + getStatus() + '\'' +
+                ", epicTaskId=" + epicId +
                 '}';
     }
 
     public int getEpicTaskId() {
-        return epicTaskId;
+        return epicId;
     }
 
     public void setEpicTaskId(int epicTaskId) {
-        this.epicTaskId = epicTaskId;
+        this.epicId = epicTaskId;
     }
 }

@@ -3,12 +3,10 @@ import task.Epic;
 import task.Subtask;
 import task.Task;
 
-import java.util.ArrayList;
 
 /**
- Поправил все)
- Борис привет, если есть возможность пропусти проект чтобы я успел начать и сдать версию 4 спринта,
- две итерации я просто не успею до 7 ноября и начать 4 проект
+ refreshEpicTaskStatus - метод для обновления статуса эпика который вложен в updateSubtask();
+ Событие для обновления статуса эпика - любое обновлдение сабтаски
  */
 public class Main {
 
@@ -20,85 +18,86 @@ public class Main {
         Task walking = new Task("Обычная таска: Погулять с собакой", "Вечером");
         Task meal = new Task("Обычная таска: Выбрать Ресторан", "В Центре");
 
-        Subtask collectData = new Subtask("Cаб-таска: Реконсиляция", "Собрать данные");
-        Subtask sortData = new Subtask("Cаб-таска: Реконсиляция", "Сортировать данные");
-        ArrayList<Subtask> subTasks = new ArrayList<>();
-        subTasks.add(collectData);
-        subTasks.add(sortData);
-        Epic reconcile = new Epic("Эпический Проект: Реконсиляция", "Релонсилировать котировки из разных источников", subTasks);
+        Subtask collectData = new Subtask("Cаб-таска: Реконсиляция", "Собрать данные", 4);
+        Subtask sortData = new Subtask("Cаб-таска: Реконсиляция", "Сортировать данные", 4);
+        Epic reconcile = new Epic("Эпический Проект: Реконсиляция", "Релонсилировать котировки из разных источников");
 
-        Subtask reCollectData = new Subtask("Cаб-таска: Реконсиляция", "Пере-Собрать данные");
-        Subtask reSortData = new Subtask("Cаб-таска: Реконсиляция", "Пере-Сортировать данные");
-        ArrayList<Subtask> reSubTasks = new ArrayList<>();
-        reSubTasks.add(reCollectData);
-        reSubTasks.add(reSortData);
-        Epic reReconcile = new Epic("Эпический Проект: Ре-Реконсиляция", "Ре-Релонсилировать котировки из разных источников", reSubTasks);
+
+        Epic reReconcile = new Epic("Эпический Проект: Ре-Реконсиляция", "Ре-Релонсилировать котировки из разных источников");
+        Subtask reCollectData = new Subtask("Cаб-таска: Реконсиляция", "Пере-Собрать данные", 7);
+        Subtask reSortData = new Subtask("Cаб-таска: Реконсиляция", "Пере-Сортировать данные", 7);
         System.out.println(" ");
 
         System.out.println("2.4 Создание. Сам объект должен передаваться в качестве параметра.");
         taskManager.addTask(time);
         taskManager.addTask(walking);
         taskManager.addTask(meal);
+        taskManager.addEpic(reconcile);
         taskManager.addSubtask(sortData);
         taskManager.addSubtask(collectData);
-        taskManager.addEpic(reconcile);
+
+        taskManager.addEpic(reReconcile);
         taskManager.addSubtask(reSortData);
         taskManager.addSubtask(reCollectData);
-        taskManager.addEpic(reReconcile);
+
         System.out.println("Задачи созданы");
         System.out.println(" ");
 
         System.out.println("2.1 Получение списка всех задач.");
         System.out.println(taskManager.getTasks());
-        System.out.println(taskManager.getSubTasks());
+        System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
 
         System.out.println("2.3 Поиск Задачи по id");
-        System.out.println(taskManager.searchTaskByTaskId(1));
-        System.out.println(taskManager.searchTaskByTaskId(2));
-        System.out.println(taskManager.searchTaskByTaskId(3));
-        System.out.println(taskManager.searchTaskByTaskId(4));
-        System.out.println(taskManager.searchTaskByTaskId(5));
-        System.out.println(taskManager.searchTaskByTaskId(6));
+        System.out.println(taskManager.getTask(1));
+        System.out.println(taskManager.getTask(2));
+        System.out.println(taskManager.getTask(3));
+        System.out.println(taskManager.getSubtask(6));
+        System.out.println(taskManager.getSubtask(5));
+        System.out.println(taskManager.getEpic(4));
         System.out.println(" ");
 
         System.out.println("2.5 Обновление. Новая версия объекта с верным идентификатором передаётся в виде параметра.");
-        taskManager.updateTask(1, walking);
-        taskManager.updateSubtask(4, collectData);
-        taskManager.updateEpic(6, reReconcile);
+        walking.setDescription("Вечером (обновленная)");
+        walking.setName("Обычная таска: Погулять с собакой (Обновленная)");
+        taskManager.updateTask(walking);
+
+        collectData.setStatus("IN_PROGRESS");
+        collectData.setName("Новая саб таска коллект дата");
+        taskManager.updateSubtask(collectData);
+
+        reconcile.setName("Обновленный эпик реконсиляции");
+        reconcile.setDescription("Обновленныое описание эпика реконсиляции");
+        taskManager.updateEpic(reconcile);
+
         System.out.println(taskManager.getTasks());
-        System.out.println(taskManager.getSubTasks());
+        System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
 
         System.out.println("3.1 Получение списка всех подзадач определённого эпика.");
-        System.out.println(taskManager.getEpicSubtasks(6));
+        System.out.println(taskManager.getEpicSubtasks(4));
         System.out.println(" ");
 
 
         System.out.println("4. Управление статусами осуществляется по следующему правилу:");
-        taskManager.manageStatusTask(1, "DONE");
-        taskManager.manageStatusTask(2, "DONE");
-        taskManager.manageStatusTask(3, "DONE");
-
-        taskManager.manageStatusTask(4, "DONE");
-        System.out.println(taskManager.getSubTasks());
+        sortData.setStatus("DONE");
+        taskManager.updateSubtask(sortData);
+        collectData.setStatus("DONE");
+        taskManager.updateSubtask(collectData);
+        System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
-        taskManager.manageStatusTask(5, "DONE");
 
-        System.out.println(taskManager.getTasks());
-        System.out.println(taskManager.getSubTasks());
-        System.out.println(taskManager.getEpics());
-        System.out.println(" ");
+
 
         System.out.println("2.6 Удаление по идентификатору");
         taskManager.deleteTask(1);
-        taskManager.deleteSubtask(4);
+        taskManager.deleteSubtask(6);
         taskManager.deleteSubtask(5);
-        taskManager.deleteEpic(6);
+        taskManager.deleteEpic(4);
         System.out.println(taskManager.getTasks());
-        System.out.println(taskManager.getSubTasks());
+        System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
 
@@ -108,7 +107,7 @@ public class Main {
         taskManager.deleteSubtasks();
         taskManager.deleteEpics();
         System.out.println(taskManager.getTasks());
-        System.out.println(taskManager.getSubTasks());
+        System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
 

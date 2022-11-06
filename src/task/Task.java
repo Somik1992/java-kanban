@@ -3,10 +3,10 @@ package task;
 
 public class Task {
 
-    public int taskId;
-    public String name;
-    public String description;
-    public String status;
+    private int id;
+    private String name;
+    private String description;
+    private String status;
 
     public Task (String name, String description) {
         this.name = name;
@@ -17,12 +17,12 @@ public class Task {
     public Task() {
     }
 
-    public int getTaskId() {
-        return taskId;
+    public int getId() {
+        return id;
     }
 
-    public void setTaskId(int taskId) {
-        this.taskId = taskId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -53,7 +53,8 @@ public class Task {
     @Override
     public String toString() {
         return "Task{" +
-                "name='" + name + '\'' +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", status='" + status + '\'' +
                 '}';
