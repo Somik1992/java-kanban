@@ -61,7 +61,7 @@ public class Main {
         System.out.println("2.5 Обновление. Новая версия объекта с верным идентификатором передаётся в виде параметра.");
         walking.setDescription("Вечером (обновленная)");
         walking.setName("Обычная таска: Погулять с собакой (Обновленная)");
-        taskManager.updateTask(walking);
+
 
         collectData.setStatus("IN_PROGRESS");
         collectData.setName("Новая саб таска коллект дата");
@@ -89,22 +89,22 @@ public class Main {
         taskManager.updateSubtask(collectData);
         System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
-
-
-
-        System.out.println("2.6 Удаление по идентификатору");
-        taskManager.deleteTask(1);
-        taskManager.deleteSubtask(6);
-        taskManager.deleteSubtask(5);
-        taskManager.deleteEpic(4);
-        System.out.println(taskManager.getTasks());
-        System.out.println(taskManager.getSubtasks());
-        System.out.println(taskManager.getEpics());
         System.out.println(" ");
+
+
+
+//        System.out.println("2.6 Удаление по идентификатору");
+//        taskManager.deleteTask(1);
+//        taskManager.deleteSubtask(6);
+//        taskManager.deleteSubtask(5);
+//        taskManager.deleteEpic(4);
+//        System.out.println(taskManager.getTasks());
+//        System.out.println(taskManager.getSubtasks());
+//        System.out.println(taskManager.getEpics());
+//        System.out.println(" ");
 
         System.out.println("2.2 Удаление всех задач");
         taskManager.deleteTasks();
-        taskManager.deleteSubtasks();
         taskManager.deleteSubtasks();
         taskManager.deleteEpics();
         System.out.println(taskManager.getTasks());

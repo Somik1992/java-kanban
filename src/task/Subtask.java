@@ -24,11 +24,11 @@ public class Subtask extends Task {
                 '}';
     }
 
-    public int getEpicTaskId() {
+    public int getEpicId() {
         return epicId;
     }
 
-    public void setEpicTaskId(int epicTaskId) {
+    public void setEpicId(int epicTaskId) {
         this.epicId = epicTaskId;
     }
 }
