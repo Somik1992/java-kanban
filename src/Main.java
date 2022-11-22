@@ -1,5 +1,9 @@
+import manager.InMemoryHistoryManager;
+import manager.InMemoryTaskManager;
+import manager.Managers;
 import manager.TaskManager;
 import task.Epic;
+import task.Status;
 import task.Subtask;
 import task.Task;
 
@@ -11,7 +15,8 @@ import task.Task;
 public class Main {
 
     public static void main(String[] args) {
-        TaskManager taskManager = new TaskManager();
+        TaskManager taskManager = Managers.getDefauts();
+        InMemoryHistoryManager inMemoryHistoryManager = new InMemoryHistoryManager();
 
         System.out.println("Создаем Задачи");
         Task time = new Task("Обычная таска: Заполенить тайм", "За прошлую неделю");
@@ -63,7 +68,7 @@ public class Main {
         walking.setName("Обычная таска: Погулять с собакой (Обновленная)");
         taskManager.updateTask(walking);
 
-        collectData.setStatus("IN_PROGRESS");
+        collectData.setStatus(Status.IN_PROGRESS);
         collectData.setName("Новая саб таска коллект дата");
         taskManager.updateSubtask(collectData);
 
@@ -82,10 +87,10 @@ public class Main {
 
 
         System.out.println("4. Управление статусами осуществляется по следующему правилу:");
-        sortData.setStatus("DONE");
+        sortData.setStatus(Status.DONE);
         taskManager.updateSubtask(sortData);
         System.out.println(taskManager.getEpics());
-        collectData.setStatus("DONE");
+        collectData.setStatus(Status.DONE);
         taskManager.updateSubtask(collectData);
         System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
@@ -111,6 +116,8 @@ public class Main {
         System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
+
+        System.out.printf(String.valueOf(inMemoryHistoryManager.getHistory()));
 
     }
 }
