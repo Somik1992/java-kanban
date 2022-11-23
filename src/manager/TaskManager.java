@@ -140,11 +140,16 @@ public class TaskManager {
             }
         }
     }
+
+    public void updateTask(Task task) {
+        tasks.set(tasks.indexOf(task), task);
+    }
     public void updateSubtask(Subtask subtask) {
+        subtasks.set(subtasks.indexOf(subtask), subtask);
         int epicId = subtask.getEpicId();
         Epic epic = getEpic(epicId);
         ArrayList<Subtask> subtaskInternal = new ArrayList<>();
-        for (int epicSubtask: epic.getSubtaskIds()) {
+        for (int epicSubtask : epic.getSubtaskIds()) {
             subtaskInternal.add(getSubtask(epicSubtask));
         }
         refreshEpicTaskStatus(subtaskInternal, epic);
@@ -165,6 +170,7 @@ public class TaskManager {
                 break;
             }
         }
+        subtasks.removeIf(subtask -> subtask.getEpicId() == epicId);
     }
     public void deleteSubtask(int subtaskId) {
         Epic epic = getEpic(getSubtask(subtaskId).getEpicId());

@@ -61,7 +61,7 @@ public class Main {
         System.out.println("2.5 Обновление. Новая версия объекта с верным идентификатором передаётся в виде параметра.");
         walking.setDescription("Вечером (обновленная)");
         walking.setName("Обычная таска: Погулять с собакой (Обновленная)");
-
+        taskManager.updateTask(walking);
 
         collectData.setStatus("IN_PROGRESS");
         collectData.setName("Новая саб таска коллект дата");
