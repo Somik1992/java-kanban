@@ -93,15 +93,15 @@ public class Main {
 
 
 
-//        System.out.println("2.6 Удаление по идентификатору");
-//        taskManager.deleteTask(1);
-//        taskManager.deleteSubtask(6);
-//        taskManager.deleteSubtask(5);
-//        taskManager.deleteEpic(4);
-//        System.out.println(taskManager.getTasks());
-//        System.out.println(taskManager.getSubtasks());
-//        System.out.println(taskManager.getEpics());
-//        System.out.println(" ");
+        System.out.println("2.6 Удаление по идентификатору");
+        taskManager.deleteTask(1);
+        taskManager.deleteSubtask(6);
+        taskManager.deleteSubtask(5);
+        taskManager.deleteEpic(4);
+        System.out.println(taskManager.getTasks());
+        System.out.println(taskManager.getSubtasks());
+        System.out.println(taskManager.getEpics());
+        System.out.println(" ");
 
         System.out.println("2.2 Удаление всех задач");
         taskManager.deleteTasks();
