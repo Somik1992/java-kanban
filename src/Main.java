@@ -9,8 +9,8 @@ import task.Task;
 
 
 /**
- refreshEpicTaskStatus - метод для обновления статуса эпика который вложен в updateSubtask();
- Событие для обновления статуса эпика - любое обновлдение сабтаски
+ * refreshEpicTaskStatus - метод для обновления статуса эпика который вложен в updateSubtask();
+ * Событие для обновления статуса эпика - любое обновлдение сабтаски
  */
 public class Main {
 
@@ -55,12 +55,13 @@ public class Main {
         System.out.println(" ");
 
         System.out.println("2.3 Поиск Задачи по id");
-        System.out.println(taskManager.getTask(1));
-        System.out.println(taskManager.getTask(2));
-        System.out.println(taskManager.getTask(3));
-        System.out.println(taskManager.getSubtask(6));
-        System.out.println(taskManager.getSubtask(5));
-        System.out.println(taskManager.getEpic(4));
+        System.out.println(taskManager.getTask(1, true));
+        System.out.println(taskManager.getTask(2, true));
+        System.out.println(taskManager.getTask(3, true));
+        System.out.println(taskManager.getSubtask(6, true));
+        System.out.println(taskManager.getSubtask(5, true));
+        System.out.println(taskManager.getEpic(4, true));
+
         System.out.println(" ");
 
         System.out.println("2.5 Обновление. Новая версия объекта с верным идентификатором передаётся в виде параметра.");
@@ -95,7 +96,6 @@ public class Main {
         System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
-
 
 
         System.out.println("2.6 Удаление по идентификатору");
