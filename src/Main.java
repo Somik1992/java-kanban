@@ -1,5 +1,4 @@
 import manager.InMemoryHistoryManager;
-import manager.InMemoryTaskManager;
 import manager.Managers;
 import manager.TaskManager;
 import task.Epic;
@@ -15,7 +14,7 @@ import task.Task;
 public class Main {
 
     public static void main(String[] args) {
-        TaskManager taskManager = Managers.getDefauts();
+        TaskManager taskManager = Managers.getDefaut();
         InMemoryHistoryManager inMemoryHistoryManager = new InMemoryHistoryManager();
 
         System.out.println("Создаем Задачи");
@@ -55,12 +54,12 @@ public class Main {
         System.out.println(" ");
 
         System.out.println("2.3 Поиск Задачи по id");
-        System.out.println(taskManager.getTask(1, true));
-        System.out.println(taskManager.getTask(2, true));
-        System.out.println(taskManager.getTask(3, true));
-        System.out.println(taskManager.getSubtask(6, true));
-        System.out.println(taskManager.getSubtask(5, true));
-        System.out.println(taskManager.getEpic(4, true));
+        System.out.println(taskManager.getTask(1));
+        System.out.println(taskManager.getTask(2));
+        System.out.println(taskManager.getTask(3));
+        System.out.println(taskManager.getSubtask(6));
+        System.out.println(taskManager.getSubtask(5));
+        System.out.println(taskManager.getEpic(4));
 
         System.out.println(" ");
 

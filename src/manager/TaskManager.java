@@ -4,16 +4,9 @@ import task.Epic;
 import task.Subtask;
 import task.Task;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
 
 public interface TaskManager {
-
-    List<Task> tasks = new ArrayList<>();
-    List<Subtask> subtasks = new ArrayList<>();
-    List<Epic> epics = new ArrayList<>();
 
     Collection<Task> getTasks();
 
@@ -23,11 +16,11 @@ public interface TaskManager {
 
     Collection<Subtask> getEpicSubtasks(int epicId);
 
-    Task getTask(int taskId, boolean saveHistory);
+    Task getTask(int taskId);
 
-    Epic getEpic(int epicId, boolean saveHistory);
+    Epic getEpic(int epicId);
 
-    Subtask getSubtask(int subtaskId, boolean saveHistory);
+    Subtask getSubtask(int subtaskId);
 
     /**
      * Менеджер сам устанавливает id, т. е. в этот метод задача приходит без id

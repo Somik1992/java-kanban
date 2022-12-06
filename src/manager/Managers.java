@@ -2,7 +2,7 @@ package manager;
 
 public class Managers {
 
-    public static TaskManager getDefauts() {
+    public static TaskManager getDefaut() {
         return new InMemoryTaskManager();
     }
 
