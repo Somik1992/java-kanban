@@ -60,6 +60,7 @@ public class Main {
         System.out.println(taskManager.getSubtask(6));
         System.out.println(taskManager.getSubtask(5));
         System.out.println(taskManager.getEpic(4));
+        System.out.println(taskManager.getEpic(7));
 
         System.out.println(" ");
 
@@ -96,6 +97,10 @@ public class Main {
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
 
+        System.out.println("4 ТЗ Историия вызовов тасок");
+        System.out.printf(String.valueOf(inMemoryHistoryManager.getHistory()));
+        System.out.println(" ");
+        System.out.println(" ");
 
         System.out.println("2.6 Удаление по идентификатору");
         taskManager.deleteTask(1);
@@ -116,7 +121,7 @@ public class Main {
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
 
-        System.out.printf(String.valueOf(inMemoryHistoryManager.getHistory()));
+
 
     }
 }
