@@ -5,14 +5,15 @@ import task.Subtask;
 import task.Task;
 
 import java.util.Collection;
+import java.util.HashMap;
 
 public interface TaskManager {
 
-    Collection<Task> getTasks();
+    HashMap<Integer, Task> getTasks();
 
-    Collection<Epic> getEpics();
+    HashMap<Integer, Epic> getEpics();
 
-    Collection<Subtask> getSubtasks();
+    HashMap<Integer, Subtask> getSubtasks();
 
     Collection<Subtask> getEpicSubtasks(int epicId);
 
