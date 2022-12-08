@@ -1,4 +1,3 @@
-import manager.InMemoryHistoryManager;
 import manager.Managers;
 import manager.TaskManager;
 import task.Epic;
@@ -14,8 +13,7 @@ import task.Task;
 public class Main {
 
     public static void main(String[] args) {
-        TaskManager taskManager = Managers.getDefaut();
-        InMemoryHistoryManager inMemoryHistoryManager = new InMemoryHistoryManager();
+        TaskManager taskManager = Managers.getDefault();
 
         System.out.println("Создаем Задачи");
         Task time = new Task("Обычная таска: Заполенить тайм", "За прошлую неделю");
@@ -98,7 +96,7 @@ public class Main {
         System.out.println(" ");
 
         System.out.println("4 ТЗ Историия вызовов тасок");
-        System.out.printf(String.valueOf(inMemoryHistoryManager.getHistory()));
+        System.out.printf(String.valueOf(taskManager.getHistory()));
         System.out.println(" ");
         System.out.println(" ");
 
@@ -120,7 +118,6 @@ public class Main {
         System.out.println(taskManager.getSubtasks());
         System.out.println(taskManager.getEpics());
         System.out.println(" ");
-
 
 
     }
