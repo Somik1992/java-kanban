@@ -59,6 +59,7 @@ public class Main {
         System.out.println(taskManager.getSubtask(5));
         System.out.println(taskManager.getEpic(4));
         System.out.println(taskManager.getEpic(7));
+        System.out.println(taskManager.getTask(1));
 
         System.out.println(" ");
 
